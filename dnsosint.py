@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
+# Made by Delorian  -  (@DelorianCS on Github)
+
+
+
 import socket, subprocess, urllib.request, json, ssl, re, sys
 from html.parser import HTMLParser
 import signal
 
-# Styling
+# Colors and styling
 def color(text, c): return f"\033[{c}m{text}\033[0m"
 def blue(t): return color(t, "94")
 def green(t): return color(t, "92")
