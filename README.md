@@ -4,9 +4,7 @@
   <img src="dnsosint.gif" alt="DNSOSINT demo" width="1000"/>
 </p>
 
-**DNSOSINT** is a lightweight, single-file Python tool for passive reconnaissance on domains. It collects subdomains from public certificate transparency logs, resolves them, and enriches the results with reverse DNS and HTTP titles — all without requiring any external dependencies.
-
----
+**DNSOSINT** is a lightweight, single-file Python tool for passive reconnaissance on domains. It collects subdomains from public certificate transparency logs, resolves them, and enriches the results with reverse DNS and HTTP titles
 
 ## 🔍 Features
 
@@ -19,8 +17,6 @@
 - Show all discovered subdomains first
 - CTRL+C interrupt support
 
----
-
 ## ⚙️ Requirements
 
 - Python 3.x (tested on 3.13)
@@ -29,8 +25,6 @@
 
 > ✅ No pip modules required  
 > ✅ No API keys or external configs
-
----
 
 ## 🧪 Usage
 
@@ -41,10 +35,8 @@ python3 dnsosint.py <domain>
 Example:
 
 ```bash
-python3 dnsosint.py ine.com
+python3 dnsosint.py example.com
 ```
-
----
 
 ## 📌 Output
 
@@ -57,23 +49,13 @@ python3 dnsosint.py ine.com
   - HTTP Title
 - DNS Records (MX, NS, TXT)
 
----
-
 ## ⚠️ Warnings
 
-- 🧨 **CTRL+C doesn't always stop instantly.** If it hangs (especially during resolution), **spam `Ctrl+C` a few times.**
-- 🌐 **If 0 subdomains are resolved**, just run the tool again. crt.sh can temporarily fail or block. It's normal.
-
----
+-  **CTRL+C doesn't always stop instantly.** If it hangs (especially during resolution), **spam `Ctrl+C` a few times.**
+-  **If 0 subdomains are resolved**, just run the tool again. crt.sh can temporarily fail or block. It's normal.
 
 ## 👤 Author
 
-**DelorianCS**  
+**Delorian**  
 [GitHub Profile](https://github.com/DelorianCS)  
 Made for the cybersecurity community
-
----
-
-## 📜 License
-
-MIT License — use freely, credit appreciated
