@@ -3,7 +3,7 @@ import socket, subprocess, urllib.request, json, ssl, re, sys
 from html.parser import HTMLParser
 import signal
 
-# ─── Styling ─────────────────────────────────────────────────────────────
+# Styling
 def color(text, c): return f"\033[{c}m{text}\033[0m"
 def blue(t): return color(t, "94")
 def green(t): return color(t, "92")
@@ -11,13 +11,13 @@ def yellow(t): return color(t, "93")
 def red(t): return color(t, "91")
 def bold(t): return color(t, "1")
 
-# ─── Graceful CTRL+C ──────────────────────────────────────────────────────
+# CTRL+C fix
 def handler(sig, frame):
     print(red("\n[!] Aborted by user"))
     sys.exit(0)
 signal.signal(signal.SIGINT, handler)
 
-# ─── ASCII Banner ─────────────────────────────────────────────────────────
+# ASCII Banner 
 def banner():
     print(bold(red("""
 ▓█████▄  ███▄    █   ██████  ▒█████    ██████  ██▓ ███▄    █ ▄▄▄█████▓
@@ -33,7 +33,7 @@ def banner():
                             by DelorianCS
 """)))
 
-# ─── HTML Title Parser ────────────────────────────────────────────────────
+#  HTML Title Parser 
 class TitleParser(HTMLParser):
     def __init__(self): super().__init__(); self.title = ""; self.in_title = False
     def handle_starttag(self, tag, attrs): self.in_title = tag == "title"
@@ -46,7 +46,7 @@ def extract_title(html):
     parser.feed(html)
     return parser.title.strip() if parser.title else "N/A"
 
-# ─── Data Source ──────────────────────────────────────────────────────────
+#  Data Source 
 def fetch_crtsh(domain):
     print(blue("[~] Fetching from crt.sh..."))
     url = f"https://crt.sh/?q=%25.{domain}&output=json"
@@ -61,7 +61,7 @@ def fetch_crtsh(domain):
         print(red(f"[!] crt.sh error: {e}"))
         return []
 
-# ─── Utilities ────────────────────────────────────────────────────────────
+#  Utilities 
 def resolve(subs):
     ip_map = {}
     for s in subs:
@@ -87,7 +87,7 @@ def dig(domain, rtype):
         return [x.strip() for x in out.decode().split("\n") if x.strip()]
     except: return []
 
-# ─── Recon ────────────────────────────────────────────────────────────────
+#  Recon 
 def passive_recon(domain):
     print(bold(green(f"\n[+] Starting passive recon for: {domain}\n")))
     subs = fetch_crtsh(domain)
@@ -134,7 +134,7 @@ def passive_recon(domain):
     for d in dorks:
         print(f" - {d}")
 
-# ─── Entry Point ──────────────────────────────────────────────────────────
+#  Entry Point 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(red("Usage: python3 dnsosint.py <domain>"))
