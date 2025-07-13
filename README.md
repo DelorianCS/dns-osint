@@ -1,4 +1,4 @@
-# 🛰️ DNSOSINT — Passive DNS Reconnaissance Tool
+#  DNSOSINT — Passive DNS Reconnaissance Tool
 
 <p align="center">
   <img src="dnsosint.gif" alt="DNSOSINT demo" width="1000"/>
